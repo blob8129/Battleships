@@ -11,24 +11,75 @@ import XCTest
 
 class BattleshipsEngineTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testInitialAvailablePlaces() {
+        let engine = Engine()
+
+        XCTAssertEqual(engine.battleField, [
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
+            [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty]
+        ])
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testFreePlacesFirstVerticalFirstHorizontal() {
+        let engine = Engine()
+        let coordinate = Coordinate(vertical: 0, horizontal: 0)
+        let count = DimensionalCount(left: 1, top: 1, right: 9, bottom: 9)
+
+        XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFreePlacesFirstVerticalSecondHorizontal() {
+        let engine = Engine()
+        let coordinate = Coordinate(vertical: 0, horizontal: 1)
+        let count = DimensionalCount(left: 2, top: 1, right: 8, bottom: 9)
+
+        XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testFreePlacesSecondVerticalFirstHorizontal() {
+        let engine = Engine()
+        let coordinate = Coordinate(vertical: 1, horizontal: 0)
+        let count = DimensionalCount(left: 1, top: 2, right: 9, bottom: 8)
+
+        XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
 
+    func testFreePlacesMiddle() {
+        let engine = Engine()
+        let coordinate = Coordinate(vertical: 5, horizontal: 5)
+        let count = DimensionalCount(left: 6, top: 6, right: 4, bottom: 4)
+
+        XCTAssertEqual(engine.freePlaces(from: coordinate), count)
+    }
+
+    func testFreePlacesBottomLeft() {
+        let engine = Engine()
+        let coordinate = Coordinate(vertical: 8, horizontal: 8)
+        let count = DimensionalCount(left: 9, top: 9, right: 1, bottom: 1)
+
+        XCTAssertEqual(engine.freePlaces(from: coordinate), count)
+    }
+
+    func testFreePlacesBottomRight() {
+        let engine = Engine()
+        let coordinate = Coordinate(vertical: 8, horizontal: 8)
+        let count = DimensionalCount(left: 9, top: 9, right: 1, bottom: 1)
+
+        XCTAssertEqual(engine.freePlaces(from: coordinate), count)
+    }
+
+    func testFreePlacesTopRight() {
+        let engine = Engine()
+        let coordinate = Coordinate(vertical: 0, horizontal: 8)
+        let count = DimensionalCount(left: 9, top: 1, right: 1, bottom: 9)
+
+        XCTAssertEqual(engine.freePlaces(from: coordinate), count)
+    }
 }

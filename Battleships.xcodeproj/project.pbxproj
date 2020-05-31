@@ -19,6 +19,8 @@
 		55596A5724829BFB0006D81F /* BattleshipsEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 55596A4724829BFA0006D81F /* BattleshipsEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55596A5A24829BFB0006D81F /* BattleshipsEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55596A4524829BFA0006D81F /* BattleshipsEngine.framework */; };
 		55596A5B24829BFB0006D81F /* BattleshipsEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55596A4524829BFA0006D81F /* BattleshipsEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		55596A6524829EFD0006D81F /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A6324829D9F0006D81F /* Engine.swift */; };
+		55596A682482A0240006D81F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A672482A0240006D81F /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		55596A4D24829BFA0006D81F /* BattleshipsEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BattleshipsEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		55596A5424829BFB0006D81F /* BattleshipsEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleshipsEngineTests.swift; sourceTree = "<group>"; };
 		55596A5624829BFB0006D81F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55596A6324829D9F0006D81F /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		55596A672482A0240006D81F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,8 @@
 		55596A4624829BFA0006D81F /* BattleshipsEngine */ = {
 			isa = PBXGroup;
 			children = (
+				55596A662482A00E0006D81F /* Entity */,
+				55596A6324829D9F0006D81F /* Engine.swift */,
 				55596A4724829BFA0006D81F /* BattleshipsEngine.h */,
 				55596A4824829BFA0006D81F /* Info.plist */,
 			);
@@ -181,6 +187,14 @@
 				55596A5624829BFB0006D81F /* Info.plist */,
 			);
 			path = BattleshipsEngineTests;
+			sourceTree = "<group>";
+		};
+		55596A662482A00E0006D81F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				55596A672482A0240006D81F /* Place.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55596A6524829EFD0006D81F /* Engine.swift in Sources */,
+				55596A682482A0240006D81F /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +564,7 @@
 		55596A3B24829B690006D81F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5YJ2XAG2D;
@@ -566,6 +583,7 @@
 		55596A3C24829B690006D81F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5YJ2XAG2D;
