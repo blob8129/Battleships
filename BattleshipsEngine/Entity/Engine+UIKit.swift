@@ -17,3 +17,10 @@ public extension Engine {
         }
     }
 }
+
+public extension Coordinate {
+    init(_ indexPath: IndexPath) {
+        self.vertical = indexPath.section
+        self.horizontal = indexPath.row
+    }
+}

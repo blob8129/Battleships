@@ -65,6 +65,10 @@ public struct Coordinate {
 
 public struct Ship: Equatable {
     let length: Int
+
+    public init(length: Int) {
+        self.length = length
+    }
 }
 
 public enum Direction {

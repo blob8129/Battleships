@@ -11,7 +11,16 @@ import BattleshipsEngine
 
 final class GameViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    private let engine = Engine()
+    private let gameInteractorInput: GameInteractorInput
+
+    init(gameInteractorInput: GameInteractorInput) {
+        self.gameInteractorInput = gameInteractorInput
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     private lazy var flowLayout: UICollectionViewFlowLayout = { flow in
         flow.minimumInteritemSpacing = 0
@@ -55,7 +64,7 @@ final class GameViewController: UIViewController, UICollectionViewDataSource, UI
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FieldItemCell.reuseIdentifier,
                                                       for: indexPath) as? FieldItemCell
-        cell?.configure(using: engine[indexPath])
+        cell?.configure(using: gameInteractorInput.item(at: indexPath))
         return cell!
     }
 
@@ -67,6 +76,16 @@ final class GameViewController: UIViewController, UICollectionViewDataSource, UI
 
     // MARK: UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        gameInteractorInput.didSelectFieldItem(at: indexPath)
+    }
+}
+
+extension GameViewController: GameInteractorOutput{
+    func reload() {
+        collectionView.reloadData()
+    }
+
+    func render(fittingShips: [(Ship, Direction)]) {
 
     }
 }

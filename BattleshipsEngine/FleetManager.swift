@@ -8,11 +8,11 @@
 
 import Foundation
 
-final class FleetManager {
+public final class FleetManager {
 
     var ships: [Ship]
 
-    func shipsFitting(space dimensionalCount: DimensionalCount) -> [(Ship, Direction)] {
+    public func shipsFitting(space dimensionalCount: DimensionalCount) -> [(Ship, Direction)] {
         return [
             shipsByDirection(ships, count: dimensionalCount.left, direction: .left),
             shipsByDirection(ships, count: dimensionalCount.up, direction: .up),
@@ -31,7 +31,7 @@ final class FleetManager {
         }
     }
 
-    init(ships: [Ship]) {
+    public init(ships: [Ship]) {
         self.ships = ships
     }
 }
