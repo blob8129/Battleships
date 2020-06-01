@@ -30,7 +30,7 @@ class BattleshipsEngineTests: XCTestCase {
     func testFreePlacesFirstVerticalFirstHorizontal() {
         let engine = Engine()
         let coordinate = Coordinate(vertical: 0, horizontal: 0)
-        let count = DimensionalCount(left: 1, top: 1, right: 9, bottom: 9)
+        let count = DimensionalCount(left: 1, up: 1, right: 9, down: 9)
 
         XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
@@ -38,7 +38,7 @@ class BattleshipsEngineTests: XCTestCase {
     func testFreePlacesFirstVerticalSecondHorizontal() {
         let engine = Engine()
         let coordinate = Coordinate(vertical: 0, horizontal: 1)
-        let count = DimensionalCount(left: 2, top: 1, right: 8, bottom: 9)
+        let count = DimensionalCount(left: 2, up: 1, right: 8, down: 9)
 
         XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
@@ -46,7 +46,7 @@ class BattleshipsEngineTests: XCTestCase {
     func testFreePlacesSecondVerticalFirstHorizontal() {
         let engine = Engine()
         let coordinate = Coordinate(vertical: 1, horizontal: 0)
-        let count = DimensionalCount(left: 1, top: 2, right: 9, bottom: 8)
+        let count = DimensionalCount(left: 1, up: 2, right: 9, down: 8)
 
         XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
@@ -54,7 +54,7 @@ class BattleshipsEngineTests: XCTestCase {
     func testFreePlacesMiddle() {
         let engine = Engine()
         let coordinate = Coordinate(vertical: 5, horizontal: 5)
-        let count = DimensionalCount(left: 6, top: 6, right: 4, bottom: 4)
+        let count = DimensionalCount(left: 6, up: 6, right: 4, down: 4)
 
         XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
@@ -62,7 +62,7 @@ class BattleshipsEngineTests: XCTestCase {
     func testFreePlacesBottomLeft() {
         let engine = Engine()
         let coordinate = Coordinate(vertical: 8, horizontal: 8)
-        let count = DimensionalCount(left: 9, top: 9, right: 1, bottom: 1)
+        let count = DimensionalCount(left: 9, up: 9, right: 1, down: 1)
 
         XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
@@ -70,7 +70,7 @@ class BattleshipsEngineTests: XCTestCase {
     func testFreePlacesBottomRight() {
         let engine = Engine()
         let coordinate = Coordinate(vertical: 8, horizontal: 8)
-        let count = DimensionalCount(left: 9, top: 9, right: 1, bottom: 1)
+        let count = DimensionalCount(left: 9, up: 9, right: 1, down: 1)
 
         XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
@@ -78,7 +78,7 @@ class BattleshipsEngineTests: XCTestCase {
     func testFreePlacesTopRight() {
         let engine = Engine()
         let coordinate = Coordinate(vertical: 0, horizontal: 8)
-        let count = DimensionalCount(left: 9, top: 1, right: 1, bottom: 9)
+        let count = DimensionalCount(left: 9, up: 1, right: 1, down: 9)
 
         XCTAssertEqual(engine.freePlaces(from: coordinate), count)
     }
@@ -88,11 +88,11 @@ class BattleshipsEngineTests: XCTestCase {
         let topLeftCoordinate = Coordinate(vertical: 0, horizontal: 0)
 
         let firstVSecondHCoordinate = Coordinate(vertical: 0, horizontal: 1)
-        let firstVSecondHCount = DimensionalCount(left: 1, top: 1, right: 8, bottom: 9)
+        let firstVSecondHCount = DimensionalCount(left: 1, up: 1, right: 8, down: 9)
         let secondVFirstHCoordinate = Coordinate(vertical: 1, horizontal: 0)
-        let secondVFirstHCount = DimensionalCount(left: 1, top: 1, right: 9, bottom: 8)
+        let secondVFirstHCount = DimensionalCount(left: 1, up: 1, right: 9, down: 8)
         let firstVLastHCoordinate = Coordinate(vertical: 0, horizontal: 8)
-        let firstVLastHCount = DimensionalCount(left: 8, top: 1, right: 1, bottom: 9)
+        let firstVLastHCount = DimensionalCount(left: 8, up: 1, right: 1, down: 9)
 
         engine.fillPlace(at: topLeftCoordinate, with: .ship)
 
@@ -107,13 +107,13 @@ class BattleshipsEngineTests: XCTestCase {
         let secondVFirstHCoordinate = Coordinate(vertical: 1, horizontal: 0)
 
         let firstVFirstHCoordinate = Coordinate(vertical: 0, horizontal: 0)
-        let firstVFirstHCount = DimensionalCount(left: 1, top: 1, right: 9, bottom: 1)
+        let firstVFirstHCount = DimensionalCount(left: 1, up: 1, right: 9, down: 1)
         let secondVSecondHCoordinate = Coordinate(vertical: 1, horizontal: 1)
-        let secondVSecondHCount = DimensionalCount(left: 1, top: 2, right: 8, bottom: 8)
+        let secondVSecondHCount = DimensionalCount(left: 1, up: 2, right: 8, down: 8)
         let thirdVFirstHCoordinate = Coordinate(vertical: 2, horizontal: 0)
-        let thirdVFirstHCount = DimensionalCount(left: 1, top: 1, right: 9, bottom: 7)
+        let thirdVFirstHCount = DimensionalCount(left: 1, up: 1, right: 9, down: 7)
         let lastVFirstHCoordinate = Coordinate(vertical: 8, horizontal: 0)
-        let lastVFirstHCount = DimensionalCount(left: 1, top: 7, right: 9, bottom: 1)
+        let lastVFirstHCount = DimensionalCount(left: 1, up: 7, right: 9, down: 1)
 
         engine.fillPlace(at: secondVFirstHCoordinate, with: .ship)
 

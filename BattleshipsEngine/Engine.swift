@@ -22,7 +22,7 @@ final class Engine {
         ]
 
     func fillPlace(at coordinate: Coordinate, with place: Place) {
-        battleField[coordinate.vertical][coordinate.horizontal] = place
+        battleField[coordinate] = place
     }
 
     func freePlaces(from coordinate: Coordinate) -> DimensionalCount {
@@ -45,15 +45,20 @@ final class Engine {
         let rightCount = Array(row[coordinate.horizontal..<row.count]).countUntilOccupied
 
         return DimensionalCount(left: leftCount,
-                                top: topCount,
+                                up: topCount,
                                 right: rightCount,
-                                bottom: bottomCount)
+                                down: bottomCount)
     }
 
     func place(_ ship: Ship, at coordinate: Coordinate, direction: Direction) {
         coordinate.shifting(by: ship.length, in: direction).forEach {
-            battleField[$0.vertical][$0.horizontal] = .ship
+            battleField[$0] = .ship
         }
+    }
+
+    func fire(at coordinate: Coordinate) {
+        let item = battleField[coordinate]
+        battleField[coordinate] = item.receivingHit
     }
 }
 

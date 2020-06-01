@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5536555E2485103D00ECDF28 /* HitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5536555D2485103D00ECDF28 /* HitTests.swift */; };
+		5536556024851EB200ECDF28 /* FleetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5536555F24851EB200ECDF28 /* FleetManager.swift */; };
+		553655622485290C00ECDF28 /* FleetManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553655612485290C00ECDF28 /* FleetManagerTests.swift */; };
 		55596A1F24829B670006D81F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A1E24829B670006D81F /* AppDelegate.swift */; };
 		55596A2124829B670006D81F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A2024829B670006D81F /* SceneDelegate.swift */; };
 		55596A2324829B670006D81F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A2224829B670006D81F /* ViewController.swift */; };
@@ -69,6 +72,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5536555D2485103D00ECDF28 /* HitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTests.swift; sourceTree = "<group>"; };
+		5536555F24851EB200ECDF28 /* FleetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetManager.swift; sourceTree = "<group>"; };
+		553655612485290C00ECDF28 /* FleetManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleetManagerTests.swift; sourceTree = "<group>"; };
 		55596A1B24829B670006D81F /* Battleships.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Battleships.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55596A1E24829B670006D81F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55596A2024829B670006D81F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +180,7 @@
 			children = (
 				55596A662482A00E0006D81F /* Entity */,
 				55596A6324829D9F0006D81F /* Engine.swift */,
+				5536555F24851EB200ECDF28 /* FleetManager.swift */,
 				55596A4724829BFA0006D81F /* BattleshipsEngine.h */,
 				55596A4824829BFA0006D81F /* Info.plist */,
 			);
@@ -184,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				55596A5424829BFB0006D81F /* BattleshipsEngineTests.swift */,
+				553655612485290C00ECDF28 /* FleetManagerTests.swift */,
+				5536555D2485103D00ECDF28 /* HitTests.swift */,
 				55596A5624829BFB0006D81F /* Info.plist */,
 			);
 			path = BattleshipsEngineTests;
@@ -391,6 +400,7 @@
 			files = (
 				55596A6524829EFD0006D81F /* Engine.swift in Sources */,
 				55596A682482A0240006D81F /* Place.swift in Sources */,
+				5536556024851EB200ECDF28 /* FleetManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +409,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				55596A5524829BFB0006D81F /* BattleshipsEngineTests.swift in Sources */,
+				553655622485290C00ECDF28 /* FleetManagerTests.swift in Sources */,
+				5536555E2485103D00ECDF28 /* HitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

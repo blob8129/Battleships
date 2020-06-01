@@ -17,16 +17,27 @@ enum Place: Equatable {
     var isOccupied: Bool {
         self != .empty
     }
+
+    var receivingHit: Place {
+        switch self {
+        case .empty:
+            return .miss
+        case .ship:
+            return .hit
+        default:
+            return self
+        }
+    }
 }
 
 struct DimensionalCount: Equatable {
     let left: Int
-    let top: Int
+    let up: Int
     let right: Int
-    let bottom: Int
+    let down: Int
 
     static var zero: DimensionalCount {
-        DimensionalCount(left: 0, top: 0, right: 0, bottom: 0)
+        DimensionalCount(left: 0, up: 0, right: 0, down: 0)
     }
 }
 
@@ -52,10 +63,29 @@ struct Coordinate {
     }
 }
 
-struct Ship {
+struct Ship: Equatable {
     let length: Int
 }
 
 enum Direction {
     case left, up, right, down
+}
+
+extension Array where Element == [Place] {
+
+    subscript(_ coordinate: Coordinate) -> Place {
+        get {
+            self[coordinate.vertical][coordinate.horizontal]
+        } set(newValue) {
+            self[coordinate.vertical][coordinate.horizontal] = newValue
+        }
+    }
+
+    subscript(_ vertical: Int, _ horizontal: Int) -> Place {
+        get {
+            self[vertical][horizontal]
+        } set(newValue) {
+            self[vertical][horizontal] = newValue
+        }
+    }
 }
