@@ -8,8 +8,8 @@
 
 import Foundation
 
-final class Engine {
-    private(set) var battleField: [[Place]] = [
+public final class Engine {
+   var battleField: [[Place]] = [
             [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
             [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
             [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty],
@@ -21,11 +21,11 @@ final class Engine {
             [.empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty, .empty]
         ]
 
-    func fillPlace(at coordinate: Coordinate, with place: Place) {
+    public func fillPlace(at coordinate: Coordinate, with place: Place) {
         battleField[coordinate] = place
     }
 
-    func freePlaces(from coordinate: Coordinate) -> DimensionalCount {
+    public func freePlaces(from coordinate: Coordinate) -> DimensionalCount {
 
         let row = battleField[coordinate.vertical]
 
@@ -50,19 +50,21 @@ final class Engine {
                                 down: bottomCount)
     }
 
-    func place(_ ship: Ship, at coordinate: Coordinate, direction: Direction) {
+    public func place(_ ship: Ship, at coordinate: Coordinate, direction: Direction) {
         coordinate.shifting(by: ship.length, in: direction).forEach {
             battleField[$0] = .ship
         }
     }
 
-    func fire(at coordinate: Coordinate) {
+    public func fire(at coordinate: Coordinate) {
         let item = battleField[coordinate]
         battleField[coordinate] = item.receivingHit
     }
+    
+    public init() {}
 }
 
-extension Array where Element == Place {
+public extension Array where Element == Place {
     var countUntilOccupied: Int {
         firstIndex(where: \.isOccupied) ?? endIndex
     }

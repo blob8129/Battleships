@@ -12,8 +12,7 @@
 		553655622485290C00ECDF28 /* FleetManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553655612485290C00ECDF28 /* FleetManagerTests.swift */; };
 		55596A1F24829B670006D81F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A1E24829B670006D81F /* AppDelegate.swift */; };
 		55596A2124829B670006D81F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A2024829B670006D81F /* SceneDelegate.swift */; };
-		55596A2324829B670006D81F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A2224829B670006D81F /* ViewController.swift */; };
-		55596A2624829B670006D81F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55596A2424829B670006D81F /* Main.storyboard */; };
+		55596A2324829B670006D81F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A2224829B670006D81F /* GameViewController.swift */; };
 		55596A2824829B690006D81F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55596A2724829B690006D81F /* Assets.xcassets */; };
 		55596A2B24829B690006D81F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55596A2924829B690006D81F /* LaunchScreen.storyboard */; };
 		55596A3624829B690006D81F /* BattleshipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A3524829B690006D81F /* BattleshipsTests.swift */; };
@@ -24,6 +23,8 @@
 		55596A5B24829BFB0006D81F /* BattleshipsEngine.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 55596A4524829BFA0006D81F /* BattleshipsEngine.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		55596A6524829EFD0006D81F /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A6324829D9F0006D81F /* Engine.swift */; };
 		55596A682482A0240006D81F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55596A672482A0240006D81F /* Place.swift */; };
+		555B92D52485356000697169 /* FieldItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B92D42485356000697169 /* FieldItemCell.swift */; };
+		555B92D7248544B700697169 /* Engine+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B92D6248544B700697169 /* Engine+UIKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,8 +79,7 @@
 		55596A1B24829B670006D81F /* Battleships.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Battleships.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55596A1E24829B670006D81F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55596A2024829B670006D81F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		55596A2224829B670006D81F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		55596A2524829B670006D81F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		55596A2224829B670006D81F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		55596A2724829B690006D81F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55596A2A24829B690006D81F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55596A2C24829B690006D81F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -94,6 +94,8 @@
 		55596A5624829BFB0006D81F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55596A6324829D9F0006D81F /* Engine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
 		55596A672482A0240006D81F /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		555B92D42485356000697169 /* FieldItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldItemCell.swift; sourceTree = "<group>"; };
+		555B92D6248544B700697169 /* Engine+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Engine+UIKit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55365563248533CB00ECDF28 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				55596A2024829B670006D81F /* SceneDelegate.swift */,
+				55596A1E24829B670006D81F /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		55365564248533E900ECDF28 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				55365565248533F400ECDF28 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		55365565248533F400ECDF28 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				553655662485340900ECDF28 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		553655662485340900ECDF28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				555B92D42485356000697169 /* FieldItemCell.swift */,
+				55596A2224829B670006D81F /* GameViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		55596A1224829B670006D81F = {
 			isa = PBXGroup;
 			children = (
@@ -155,10 +191,8 @@
 		55596A1D24829B670006D81F /* Battleships */ = {
 			isa = PBXGroup;
 			children = (
-				55596A1E24829B670006D81F /* AppDelegate.swift */,
-				55596A2024829B670006D81F /* SceneDelegate.swift */,
-				55596A2224829B670006D81F /* ViewController.swift */,
-				55596A2424829B670006D81F /* Main.storyboard */,
+				55365563248533CB00ECDF28 /* Application */,
+				55365564248533E900ECDF28 /* Modules */,
 				55596A2724829B690006D81F /* Assets.xcassets */,
 				55596A2924829B690006D81F /* LaunchScreen.storyboard */,
 				55596A2C24829B690006D81F /* Info.plist */,
@@ -202,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				55596A672482A0240006D81F /* Place.swift */,
+				555B92D6248544B700697169 /* Engine+UIKit.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -348,7 +383,6 @@
 			files = (
 				55596A2B24829B690006D81F /* LaunchScreen.storyboard in Resources */,
 				55596A2824829B690006D81F /* Assets.xcassets in Resources */,
-				55596A2624829B670006D81F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +414,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55596A2324829B670006D81F /* ViewController.swift in Sources */,
+				55596A2324829B670006D81F /* GameViewController.swift in Sources */,
+				555B92D52485356000697169 /* FieldItemCell.swift in Sources */,
 				55596A1F24829B670006D81F /* AppDelegate.swift in Sources */,
 				55596A2124829B670006D81F /* SceneDelegate.swift in Sources */,
 			);
@@ -398,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555B92D7248544B700697169 /* Engine+UIKit.swift in Sources */,
 				55596A6524829EFD0006D81F /* Engine.swift in Sources */,
 				55596A682482A0240006D81F /* Place.swift in Sources */,
 				5536556024851EB200ECDF28 /* FleetManager.swift in Sources */,
@@ -440,14 +476,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		55596A2424829B670006D81F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				55596A2524829B670006D81F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		55596A2924829B690006D81F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

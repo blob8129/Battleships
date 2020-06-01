@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Place: Equatable {
+public enum Place: Equatable {
     case empty
     case ship
     case hit
@@ -30,7 +30,7 @@ enum Place: Equatable {
     }
 }
 
-struct DimensionalCount: Equatable {
+public struct DimensionalCount: Equatable {
     let left: Int
     let up: Int
     let right: Int
@@ -41,7 +41,7 @@ struct DimensionalCount: Equatable {
     }
 }
 
-struct Coordinate {
+public struct Coordinate {
     let vertical: Int
     let horizontal: Int
 
@@ -63,15 +63,15 @@ struct Coordinate {
     }
 }
 
-struct Ship: Equatable {
+public struct Ship: Equatable {
     let length: Int
 }
 
-enum Direction {
+public enum Direction {
     case left, up, right, down
 }
 
-extension Array where Element == [Place] {
+public extension Array where Element == [Place] {
 
     subscript(_ coordinate: Coordinate) -> Place {
         get {
