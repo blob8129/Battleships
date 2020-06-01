@@ -47,13 +47,13 @@ public struct Coordinate {
 
     func shifting(by count: Int, in direction: Direction) -> [Coordinate] {
         switch direction {
-        case .left:
+        case .right:
             return (horizontal..<(horizontal + count))
                 .map { Coordinate(vertical: vertical, horizontal: $0) }
         case .up:
             return (((vertical + 1) - count)...vertical)
                 .map { Coordinate(vertical: $0, horizontal: horizontal) }
-        case .right:
+        case .left:
             return (((horizontal + 1) - count)...horizontal)
                 .map { Coordinate(vertical: vertical, horizontal: $0) }
         case .down:
@@ -64,7 +64,7 @@ public struct Coordinate {
 }
 
 public struct Ship: Equatable {
-    let length: Int
+    public let length: Int
 
     public init(length: Int) {
         self.length = length

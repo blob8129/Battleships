@@ -22,7 +22,6 @@ final class FieldItemCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-
     }
 
     required init?(coder: NSCoder) {
@@ -31,6 +30,8 @@ final class FieldItemCell: UICollectionViewCell {
     }
 
     func commonInit() {
+        selectedBackgroundView = UIView()
+        selectedBackgroundView?.backgroundColor = .yellow
         contentView.backgroundColor = .white
         contentView.addSubview(label)
         contentView.layer.borderWidth = 1
@@ -46,14 +47,13 @@ final class FieldItemCell: UICollectionViewCell {
     func configure(using place: Place) {
         switch place {
         case .empty:
-            label.text = "e"
+            label.text = "🌊"
         case .ship:
-            label.text = "s"
+            label.text = "⬛"
         case .hit:
-            label.text = "h"
+            label.text = "🔥"
         case .miss:
-            label.text = "m"
+            label.text = "❌"
         }
-
     }
 }

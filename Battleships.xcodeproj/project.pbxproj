@@ -154,7 +154,7 @@
 		55365565248533F400ECDF28 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				555B92D8248546BA00697169 /* GameInteractor.swift */,
+				555B92DA248566F300697169 /* Interactor */,
 				553655662485340900ECDF28 /* View */,
 			);
 			path = Main;
@@ -242,6 +242,14 @@
 				555B92D6248544B700697169 /* Engine+UIKit.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		555B92DA248566F300697169 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				555B92D8248546BA00697169 /* GameInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

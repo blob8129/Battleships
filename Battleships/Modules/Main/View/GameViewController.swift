@@ -13,6 +13,43 @@ final class GameViewController: UIViewController, UICollectionViewDataSource, UI
 
     private let gameInteractorInput: GameInteractorInput
 
+    lazy var shipSelectorTitleLabel: UILabel = { lbl in
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.textAlignment = .center
+        lbl.text = "Place your ship!"
+        return lbl
+    }(UILabel())
+
+    private lazy var shipLengthSegmentedControl: UISegmentedControl = { sls in
+        sls.translatesAutoresizingMaskIntoConstraints = false
+        (1...5).forEach {
+            sls.insertSegment(withTitle: "\($0)", at: $0, animated: false)
+        }
+        sls.addTarget(self,
+                      action: #selector(shipLengthSelectorValueChangedAction),
+                      for: .valueChanged)
+        return sls
+    }(UISegmentedControl())
+
+    private lazy var directionsSegmentedControl: UISegmentedControl = { sls in
+        sls.translatesAutoresizingMaskIntoConstraints = false
+        ["←", "↑", "→", "↓"].enumerated().forEach { offset, arrow in
+            sls.insertSegment(withTitle: arrow, at: offset, animated: false)
+        }
+        sls.addTarget(self,
+                      action: #selector(directionSelectorValueChangedAction),
+                      for: .valueChanged)
+        return sls
+    }(UISegmentedControl())
+
+    @objc func shipLengthSelectorValueChangedAction(sender: UISegmentedControl) {
+        gameInteractorInput.didSelectShip(at: sender.selectedSegmentIndex)
+    }
+
+    @objc func directionSelectorValueChangedAction(sender: UISegmentedControl) {
+        gameInteractorInput.didSelectDirection(at: sender.selectedSegmentIndex)
+    }
+
     init(gameInteractorInput: GameInteractorInput) {
         self.gameInteractorInput = gameInteractorInput
         super.init(nibName: nil, bundle: nil)
@@ -41,16 +78,41 @@ final class GameViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        hideShipSelection()
         addAllSubviews()
+    }
+
+    private func hideShipSelection() {
+        shipLengthSegmentedControl.isHidden = true
+        directionsSegmentedControl.isHidden = true
+        shipSelectorTitleLabel.isHidden = true
     }
 
     func addAllSubviews() {
         view.addSubview(collectionView)
+        view.addSubview(shipSelectorTitleLabel)
+        view.addSubview(shipLengthSegmentedControl)
+        view.addSubview(directionsSegmentedControl)
         NSLayoutConstraint.activate([
-            view.layoutMarginsGuide.leftAnchor.constraint(equalTo: collectionView.leftAnchor),
-            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: collectionView.topAnchor),
+            collectionView.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                                          constant: 64),
             collectionView.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+
+            shipSelectorTitleLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            shipSelectorTitleLabel.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            view.layoutMarginsGuide.rightAnchor.constraint(equalTo: shipSelectorTitleLabel.rightAnchor),
+
+            shipLengthSegmentedControl.topAnchor.constraint(equalTo: shipSelectorTitleLabel.bottomAnchor,
+                                                            constant: 8),
+            shipLengthSegmentedControl.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            view.layoutMarginsGuide.rightAnchor.constraint(equalTo: shipLengthSegmentedControl.rightAnchor),
+
+            directionsSegmentedControl.topAnchor.constraint(equalTo: shipLengthSegmentedControl.bottomAnchor),
+            directionsSegmentedControl.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor),
+            view.layoutMarginsGuide.rightAnchor.constraint(equalTo: directionsSegmentedControl.rightAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: directionsSegmentedControl.bottomAnchor,
+                                                             constant: 64),
         ])
     }
 
@@ -81,11 +143,26 @@ final class GameViewController: UIViewController, UICollectionViewDataSource, UI
 }
 
 extension GameViewController: GameInteractorOutput{
+
     func reload() {
+        hideShipSelection()
+        shipLengthSegmentedControl.selectedSegmentIndex = UISegmentedControl.noSegment
+        directionsSegmentedControl.selectedSegmentIndex = UISegmentedControl.noSegment
         collectionView.reloadData()
     }
 
-    func render(fittingShips: [(Ship, Direction)]) {
+    func renderShipLengthSelector(isEnabled: [Bool]) {
+        shipSelectorTitleLabel.isHidden = false
+        shipLengthSegmentedControl.isHidden = false
+        isEnabled.enumerated().forEach { offset, isOn in
+            shipLengthSegmentedControl.setEnabled(isOn, forSegmentAt: offset)
+        }
+    }
 
+    func renderDirectionSelector(isEnabled: [Bool]) {
+        directionsSegmentedControl.isHidden = false
+        isEnabled.enumerated().forEach { offset, isOn in
+            directionsSegmentedControl.setEnabled(isOn, forSegmentAt: offset)
+        }
     }
 }
